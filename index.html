@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RK3588 工业智能工具链 | Industrial AI Toolkit</title>
+<meta name="description" content="RK3588工业AI视觉、实时中间件、国产OS适配套件 — 一站式工业智能化解决方案">
+<style>
+:root {
+  --bg: #0a0e17;
+  --card: #111827;
+  --accent: #3b82f6;
+  --accent2: #10b981;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --border: #1e293b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
+.container { max-width:1200px; margin:0 auto; padding:0 24px; }
+
+/* Hero */
+.hero { padding:100px 0 60px; text-align:center; background:linear-gradient(180deg, #0f172a 0%, var(--bg) 100%); }
+.hero h1 { font-size:3rem; font-weight:800; background:linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:16px; }
+.hero p { font-size:1.2rem; color:var(--muted); max-width:700px; margin:0 auto 32px; }
+.hero .badge { display:inline-flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.hero .badge span { background:var(--card); border:1px solid var(--border); padding:6px 16px; border-radius:20px; font-size:0.85rem; color:var(--muted); }
+
+/* Products */
+.products { padding:60px 0; }
+.products h2 { text-align:center; font-size:2rem; margin-bottom:48px; }
+.product-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:24px; }
+.product-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px; transition:all .2s; }
+.product-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+.product-card .icon { font-size:2.5rem; margin-bottom:16px; }
+.product-card h3 { font-size:1.3rem; margin-bottom:8px; }
+.product-card .desc { color:var(--muted); margin-bottom:16px; font-size:0.95rem; }
+.product-card .tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.product-card .tags span { background:rgba(59,130,246,0.1); color:var(--accent); padding:2px 10px; border-radius:12px; font-size:0.78rem; }
+.product-card .btn { display:inline-block; padding:8px 20px; background:var(--accent); color:white; border-radius:8px; text-decoration:none; font-size:0.9rem; font-weight:600; margin-right:8px; }
+.product-card .btn.outline { background:transparent; border:1px solid var(--accent); color:var(--accent); }
+
+/* Stats */
+.stats { padding:60px 0; text-align:center; }
+.stats h2 { font-size:2rem; margin-bottom:40px; }
+.stats-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:24px; }
+.stat-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px; }
+.stat-card .number { font-size:2.2rem; font-weight:800; color:var(--accent2); }
+.stat-card .label { color:var(--muted); font-size:0.9rem; margin-top:4px; }
+
+/* Architecture */
+.arch { padding:60px 0; }
+.arch h2 { text-align:center; font-size:2rem; margin-bottom:40px; }
+.arch-diagram { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px; overflow-x:auto; }
+.arch-diagram pre { color:var(--text); font-size:0.85rem; line-height:1.8; font-family:'JetBrains Mono','Fira Code',monospace; }
+
+/* Footer */
+.footer { padding:40px 0; text-align:center; border-top:1px solid var(--border); color:var(--muted); font-size:0.9rem; }
+.footer a { color:var(--accent); text-decoration:none; }
+
+/* Responsive */
+@media(max-width:768px) {
+  .hero h1 { font-size:2rem; }
+  .product-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>RK3588 工业智能工具链</h1>
+    <p>基于瑞芯微 RK3588 平台的一站式工业智能化解决方案 — AI视觉推理、工业协议实时中间件、国产操作系统深度适配</p>
+    <div class="badge">
+      <span>RK3588</span><span>AI Vision</span><span>PREEMPT_RT</span>
+      <span>EtherCAT</span><span>OPC UA</span><span>KylinOS</span>
+      <span>UOS</span><span>NeoCertify</span>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="products" id="products">
+  <div class="container">
+    <h2>产品矩阵</h2>
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="icon">[ai]</div>
+        <h3>工业AI视觉工具包</h3>
+        <p class="desc">RTSP摄像头 + NPU YOLOv5s推理 + OPC UA/Modbus工业协议 + Web实时面板，25.7 FPS端到端</p>
+        <div class="tags">
+          <span>YOLOv5s</span><span>NPU 46 FPS</span><span>RTSP</span>
+          <span>OPC UA</span><span>Modbus</span><span>Dashboard</span>
+        </div>
+        <a href="https://tuituiai.cn/github/rk3588-industrial-toolkit" class="btn">GitHub</a>
+        <a href="https://tuituiai.cn/github/rk3588-industrial-toolkit#readme" class="btn outline">文档</a>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="icon">[rt]</div>
+        <h3>工业协议实时中间件</h3>
+        <p class="desc">CPU核隔离 + IRQ亲和性 + 延迟抖动监控 + EtherCAT/Profinet协议栈，目标P99 &lt;50us</p>
+        <div class="tags">
+          <span>PREEMPT_RT</span><span>EtherCAT</span><span>CPU隔离</span>
+          <span>抖动监控</span><span>AMP架构</span><span>deb打包</span>
+        </div>
+        <a href="https://tuituiai.cn/github/rk3588-industrial-rt-middleware" class="btn">GitHub</a>
+        <a href="https://tuituiai.cn/github/rk3588-industrial-rt-middleware#readme" class="btn outline">文档</a>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="icon">[cn]</div>
+        <h3>国产OS适配套件</h3>
+        <p class="desc">麒麟OS/统信UOS驱动兼容层 + Linux+RTOS混合调度 + 工业外设一键安装 + NeoCertify认证</p>
+        <div class="tags">
+          <span>KylinOS</span><span>UOS</span><span>NeoCertify</span>
+          <span>RS485</span><span>CAN FD</span><span>信创认证</span>
+        </div>
+        <a href="https://tuituiai.cn/github/rk3588-domestic-os-kit" class="btn">GitHub</a>
+        <a href="https://tuituiai.cn/github/rk3588-domestic-os-kit#readme" class="btn outline">文档</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Performance Stats -->
+<section class="stats">
+  <div class="container">
+    <h2>性能指标</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">25.7</div>
+        <div class="label">端到端 FPS (AI视觉)</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">21.7ms</div>
+        <div class="label">NPU 推理延迟</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">3.1x</div>
+        <div class="label">性能提升 (8.2→25.7)</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">&lt;50us</div>
+        <div class="label">目标实时延迟 (PREEMPT_RT)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section class="arch">
+  <div class="container">
+    <h2>系统架构</h2>
+    <div class="arch-diagram">
+<pre>
+RK3588 SoC
++-- A55 Cluster (Cores 0-3) ---- Linux Management ----+
+|  - OPC UA Server (4840)                             |
+|  - Modbus TCP/RTU (502)                             |
+|  - Web Dashboard (8080)                             |
+|  - System Monitor + Logging                         |
++-----------------------------------------------------+
+          |  IPC (RPMsg / Shared Memory)  |
++-- A76 Cluster (Cores 4-7) ---- Real-Time Island ----+
+|  - EtherCAT Master (PREEMPT_RT)                     |
+|  - Profinet Stack                                   |
+|  - Motion Control                                   |
+|  - NPU AI Inference (YOLOv5s, 46 FPS)               |
++-----------------------------------------------------+
+          |                    |
+    RS485/CAN FD        RTSP Camera
+    Industrial I/O      AI Vision Input
+</pre>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>RK3588 Industrial AI Toolkit &copy; 2026 | tuituiai.cn</p>
+    <p>
+      <a href="https://tuituiai.cn/github/rk3588-industrial-toolkit">AI视觉</a> ·
+      <a href="https://tuituiai.cn/github/rk3588-industrial-rt-middleware">实时中间件</a> ·
+      <a href="https://tuituiai.cn/github/rk3588-domestic-os-kit">国产OS适配</a>
+    </p>
+    <p style="margin-top:8px;font-size:0.8rem">基于瑞芯微 RK3588 | LubanCat-5 | Ubuntu 22.04 | PREEMPT_RT</p>
+  </div>
+</footer>
+
+</body>
+</html>

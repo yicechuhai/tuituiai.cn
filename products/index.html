@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品安装指南 | tuituiai.cn</title>
+<style>
+:root { --bg:#0a0e17; --card:#111827; --accent:#3b82f6; --accent2:#10b981; --text:#e2e8f0; --muted:#94a3b8; --border:#1e293b; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+.container { max-width:1100px; margin:0 auto; padding:0 24px; }
+header { padding:20px 0; border-bottom:1px solid var(--border); margin-bottom:40px; display:flex; justify-content:space-between; align-items:center; }
+header .logo { font-size:1.3rem; font-weight:700; color:var(--accent); text-decoration:none; }
+h1 { font-size:2rem; margin-bottom:8px; }
+h2 { font-size:1.4rem; margin:32px 0 12px; color:var(--accent); }
+pre { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px; overflow-x:auto; margin:12px 0; }
+.install-box { background:var(--card); border:2px solid var(--accent2); border-radius:12px; padding:24px; margin:24px 0; }
+.install-box h3 { color:var(--accent2); margin-top:0; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+@media(max-width:768px) { .grid-2 { grid-template-columns:1fr; } }
+.footer { padding:40px 0; text-align:center; border-top:1px solid var(--border); color:var(--muted); margin-top:60px; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <a href="/" class="logo">tuituiai.cn</a>
+</header>
+
+<h1>RK3588 产品安装指南</h1>
+
+<h2>1. 工业AI视觉工具包</h2>
+<div class="install-box">
+<h3>一键安装</h3>
+<pre><code>git clone https://github.com/yicechuhai/rk3588-industrial-toolkit.git
+cd rk3588-industrial-toolkit
+pip3 install rknn-toolkit-lite2 numpy opencv-python fastapi uvicorn
+sudo cp deploy/systemd/*.service /etc/systemd/system/
+sudo systemctl enable rk3588-pipeline rk3588-dashboard
+sudo systemctl start rk3588-pipeline rk3588-dashboard
+curl http://localhost:8080/api/stats</code></pre>
+</div>
+
+<h2>2. 工业协议实时中间件</h2>
+<div class="install-box">
+<h3>源码安装</h3>
+<pre><code>git clone https://github.com/yicechuhai/rk3588-industrial-rt-middleware.git
+cd rk3588-industrial-rt-middleware
+sudo bash src/rt-core/cpu_isolation.sh isolate 4-7
+sudo python3 src/monitor/jitter_monitor.py -d 60</code></pre>
+</div>
+
+<h2>3. 国产OS适配套件</h2>
+<div class="install-box">
+<h3>兼容性检测 + 认证</h3>
+<pre><code>git clone https://github.com/yicechuhai/rk3588-domestic-os-kit.git
+cd rk3588-domestic-os-kit
+sudo python3 src/driver-layer/kylinos_compat.py --setup --verify
+sudo python3 src/cert/neocertify_runner.py
+sudo bash src/peripheral/one_click_install.sh</code></pre>
+</div>
+
+<h2>系统要求</h2>
+<div class="grid-2">
+<div><h3>硬件</h3><p>RK3588 (LubanCat-5 / Orange Pi 5 / NanoPC-T6)<br>8GB+ RAM, NPU /dev/dri/renderD129</p></div>
+<div><h3>软件</h3><p>Ubuntu 22.04 / Debian 12 / KylinOS V10 / UOS V20<br>Python 3.10+, librknnrt.so, OpenCV 4.5+</p></div>
+</div>
+
+<div class="footer"><p>tuituiai.cn | RK3588 Industrial Toolkit</p></div>
+</div>
+</body>
+</html>
